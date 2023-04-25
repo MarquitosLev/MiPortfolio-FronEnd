@@ -10,7 +10,7 @@ export class ShardysoftService {
   // Comentar luego
   // hysURL = environment.TestURL + "/hys/";
 
-  hysURL = "https://backend-portfolio-o88p.onrender.com/hys/"
+  hysURL = "https://portfolio-backend-mjl.onrender.com/hys/"
 
   constructor(private httpClient: HttpClient) { }
 

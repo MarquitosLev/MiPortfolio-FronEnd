@@ -10,7 +10,7 @@ export class SExperienciaService {
   // Comentar luego
   // expURL = environment.TestURL + "/exp/";
 
-  expURL = "https://backend-portfolio-o88p.onrender.com/exp/"
+  expURL = "https://portfolio-backend-mjl.onrender.com/exp/"
 
   constructor(private httpClient: HttpClient) { }
 

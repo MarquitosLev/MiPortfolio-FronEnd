@@ -8,7 +8,7 @@ import { persona } from '../model/persona.model';
 })
 export class PersonaService {
   // comentar luego
-  URL = "https://backend-portfolio-o88p.onrender.com/persona/";
+  URL = "https://portfolio-backend-mjl.onrender.com/persona/";
   
   // Base del url para luego concatenarlo 
   

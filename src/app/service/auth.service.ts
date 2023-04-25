@@ -13,7 +13,7 @@ export class AuthService {
   // URL: 'https://backend-portfolio-o88p.onrender.com',
   // TestURL: 'http://localhost:8080'
   // Url del entorno de prueba
-  authURL = 'https://backend-portfolio-o88p.onrender.com/auth/';
+  authURL = 'https://portfolio-backend-mjl.onrender.com/auth/';
 
   // Url del entorno de produccion
   //authURL = environment.URL + "auth/";

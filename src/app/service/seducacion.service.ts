@@ -8,7 +8,7 @@ import { Educacion } from '../model/educacion';
 })
 export class SeducacionService {
   // Comentar luego
-  edURL = "https://backend-portfolio-o88p.onrender.com/educacion/";
+  edURL = "https://portfolio-backend-mjl.onrender.com/educacion/";
 
   // edURL = environment.URL + "/educacion/";
 
