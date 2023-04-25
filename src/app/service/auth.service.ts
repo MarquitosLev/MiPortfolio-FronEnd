@@ -5,13 +5,18 @@ import { Observable } from 'rxjs';
 import { LoginComponent } from '../components/login/login.component';
 import { LoginUsuario } from '../model/login-usuario';
 import { JwtDto } from '../model/jwt-dto';
-import { environment } from '../environment/enviroment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  authURL = environment.URL + "auth/"
+  // URL: 'https://backend-portfolio-o88p.onrender.com',
+  // TestURL: 'http://localhost:8080'
+  // Url del entorno de prueba
+  authURL = 'https://backend-portfolio-o88p.onrender.com/auth/';
+
+  // Url del entorno de produccion
+  //authURL = environment.URL + "auth/";
 
   constructor(private httpClient: HttpClient) {}
 

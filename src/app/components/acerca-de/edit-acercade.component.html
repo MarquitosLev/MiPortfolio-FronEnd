@@ -1,0 +1,65 @@
+<body class="vh-100">
+  <div
+    class="position-absolute top-50 start-50 translate-middle container"
+    *ngIf="persona"
+  >
+    <div class="row">
+      <div>
+        <h1 class="text-center">Editar Persona</h1>
+        <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+          <div class="p-2 form-group">
+            <label for="nombre" class="fs-3">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nombre"
+              name="nombre"
+              [(ngModel)]="persona.nombre"
+              required
+            />
+          </div>
+          <div class="p-2 pt-0 form-group">
+            <label for="apellido" class="fs-3">Apellido</label>
+            <input
+              type="text"
+              class="form-control"
+              id="apellido"
+              name="apellido"
+              [(ngModel)]="persona.apellido"
+              required
+            />
+          </div>
+          <div class="p-2 pt-0 form-group">
+            <label for="descripcion" class="fs-3">Descripción</label>
+            <input
+              type="text"
+              class="form-control"
+              id="descripcion"
+              name="descripcion"
+              [(ngModel)]="persona.descripcion"
+              required
+            />
+          </div>
+
+          <!-- IMAGEN a agregar luego--> 
+          <!-- <div class="p-2 pt-0 form-group">
+            <label for="img" class="fs-3">Imagen de perfil</label>
+            <input
+              type="file"
+              class="form-control"
+              id="img"
+              name="img"
+              [(ngModel)]="persona.img"
+              (change)="changeImg($event)"
+              accept=".jpg, .jpeg, .png"
+            />
+          </div> -->
+
+          <div class="text-center">
+            <button class="btn btn-primary">Actualizar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
