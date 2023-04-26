@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { persona } from '../model/persona.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonaService {
   // comentar luego
-  URL = "https://portfolio-backend-mjl.onrender.com/persona/";
+  URL = environment.URL + "persona/"
   
   // Base del url para luego concatenarlo 
   

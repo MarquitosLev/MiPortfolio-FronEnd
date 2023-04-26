@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Experiencia } from '../model/experiencia';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,7 @@ import { Observable } from 'rxjs';
 export class SExperienciaService {
   // Comentar luego
   // expURL = environment.TestURL + "/exp/";
-
-  expURL = "https://portfolio-backend-mjl.onrender.com/exp/"
+  expURL = environment.URL + "exp/"
 
   constructor(private httpClient: HttpClient) { }
 

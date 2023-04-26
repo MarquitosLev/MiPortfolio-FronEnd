@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { async } from '@angular/core/testing';
 import {
   Storage,
   getDownloadURL,
@@ -11,28 +12,29 @@ import {
   providedIn: 'root',
 })
 export class ImageService {
-  Url: string = '';
+  url: string = '';
   constructor(private storage: Storage) {}
 
-  public changeImg($event: any, nombre: string) {
-    // consigue el file con sus datos
+  public uploadImage($event: any, nombre: string) {
     const file = $event.target.files[0];
 
-    const imgRef = ref(this.storage, `image/` + nombre);
+    const imgRef = ref(this.storage, `imagen/` + nombre);
 
     uploadBytes(imgRef, file)
-      .then((res) => {
-        this.getImage();
+      .then((response) => {
+        this.getImagen();
       })
-      .catch((error) => 'error con upload');
+      .catch((error) => error);
   }
 
-  getImage(){
-    // const imgRef = ref(this.storage, `images`);
-    // list(imgRef).then(async resp => {
-    //   for (let i of resp.items){
-    //     this.Url = await getDownloadURL(i);
-    //   }
-    // }).catch(error => "error con getImage")
+  getImagen() {
+    const imgRef = ref(this.storage, 'imagen');
+    list(imgRef)
+      .then(async (response) => {
+        for (let i of response.items) {
+          this.url = await getDownloadURL(i);          
+        }
+      })
+      .catch((error) => error);
   }
 }

@@ -13,7 +13,7 @@ export class EditAcercadeComponent {
   persona: persona = null;
 
   constructor(
-    public imageS: ImageService,
+    public imagService: ImageService,
     private persS: PersonaService,
     private activatedRouter: ActivatedRoute,
     private router: Router
@@ -34,6 +34,7 @@ export class EditAcercadeComponent {
 
   onUpdate() {
     const id = this.activatedRouter.snapshot.params['id'];
+    this.persona.img = this.imagService.url;
     this.persS.update(id, this.persona).subscribe(
       (data) => {
         this.router.navigate(['']);
@@ -45,9 +46,9 @@ export class EditAcercadeComponent {
     );
   }
 
-  // changeImg($event: any) {
-  //   const id = this.activatedRouter.snapshot.params['id'];
-  //   const nombre = "foto_"+id;
-  //   this.imageS.changeImg($event, nombre);
-  // }
+  changeImg($event: any) {
+    const id = this.activatedRouter.snapshot.params['id'];
+    const nombre = 'foto_' + id;
+    this.imagService.uploadImage($event, nombre);
+  }
 }
