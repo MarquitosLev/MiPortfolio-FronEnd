@@ -8,8 +8,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SExperienciaService {
-  // Comentar luego
-  // expURL = environment.TestURL + "/exp/";
   expURL = environment.URL + "exp/"
 
   constructor(private httpClient: HttpClient) { }

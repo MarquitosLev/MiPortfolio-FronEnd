@@ -8,10 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class SeducacionService {
-  // Comentar luego
   edURL = environment.URL + "educacion/"
-
-  // edURL = environment.URL + "/educacion/";
 
   constructor(private httpClient : HttpClient) { }
 

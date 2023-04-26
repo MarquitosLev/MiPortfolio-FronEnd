@@ -8,13 +8,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class PersonaService {
-  // comentar luego
   URL = environment.URL + "persona/"
   
-  // Base del url para luego concatenarlo 
-  
-  // URL = environment.URL + "persona/"
-
   constructor(private http: HttpClient) { }
 
   public getPersona(): Observable<persona> {

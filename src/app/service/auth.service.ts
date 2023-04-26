@@ -10,12 +10,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
-  // TestURL: 'http://localhost:8080'
-  // Url del entorno de prueba
   authURL = environment.URL + "auth/"
-
-  // Url del entorno de produccion
-  //authURL = environment.URL + "auth/";
 
   constructor(private httpClient: HttpClient) {}
 

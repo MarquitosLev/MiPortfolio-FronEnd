@@ -8,9 +8,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ShardysoftService {
-  // Comentar luego
-  // hysURL = environment.TestURL + "/hys/";
-
   hysURL = environment.URL + "hys/"
 
   constructor(private httpClient: HttpClient) { }
