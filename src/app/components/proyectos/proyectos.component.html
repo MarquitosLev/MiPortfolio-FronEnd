@@ -1,21 +1,75 @@
-<div class="p-5 row">
+<div class="p-5 row" *ngIf="proyecto.length > 0 || isLogged">
   <h1 class="p-2 text-center"><strong>Proyectos</strong></h1>
+  <div class="text-center p-2">
+    <button
+      type="button"
+      class="btn btn-secondary p-1"
+      routerLink="/newproyecto"
+      *ngIf="isLogged"
+    >
+      Nuevo Proyecto
+    </button>
+  </div>
 
-  <div class="col-lg-6">
-    <h2>Gestión de Biblioteca</h2>
+  <div class="p-2 col-lg-12 col-sm-12">
+    <table class="table">
+      <tbody>
+        <!-- Recorrido de todas las educaciones existentes -->
+        <tr *ngFor="let Proyecto of proyecto">
+          <!-- NOMBRE -->
+          <td>
+            <h2 class="text-light p-2 col-md-4">{{ Proyecto.nombre }}</h2>
+          </td>
+
+          <!-- DESCRIPCION -->
+          <td class="text-light p-2 pt-3 col-md-6">
+            {{ Proyecto.descripcion }}
+          </td>
+
+          <!-- SOLUCIONAR IMAGEN -->
+          <!-- IMAGEN-->
+          <td class="p-2 col-md-2">
+            <img src="{{ Proyecto.imagen }}" id="foto_perfil" class="crop" />
+          </td>
+
+          <!-- url -->
+          <td class="text-light p-2 align-self-center col-md-1">
+            <a href="{{ Proyecto.url }}" target="_blank">Link</a>
+          </td>
+
+          <!-- Boton para editar Proyecto -->
+          <td *ngIf="isLogged" class="text-center pt-4">
+            <button
+              class="btn btn-light"
+              routerLink="/editproyecto/{{ Proyecto.id }}"
+            >
+              <i class="p-3 bi bi-pencil-fill"></i>
+            </button>
+          </td>
+
+          <!-- Delete -->
+          <td *ngIf="isLogged" class="text-center pt-4">
+            <button class="btn btn-danger" (click)="delete(Proyecto.id)">
+              <i class="bi bi-trash-fill p-3"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- <div class="col-lg-6">
+    <h2>{{proyecto.nombre}}</h2>
     <p>
-      De forma grupal, desarrollamos una aplicación de gestión de biblioteca
-      como parte de una actividad propuesta por la cátedra de "Programación
-      Orientada a Objetos" de la carrera de "Licenciatura en Sistemas".
+      {{proyecto.descripcion}}
     </p>
 
-    <a href="https://github.com/MarquitosLev/POOTaller" target="_blank"
-      ><i class="bi bi-github"></i
-    ></a>
+    <a href="{{proyecto.url}}" target="_blank"
+      ></a>
   </div>
   <div class="col-lg-2"></div>
   <div class="col-lg-4">
-    <img src="../../../assets/proyecto1.jpg" class="img-fluid img-proy" />
+    <img src="{{proyecto.img}}" class="img-fluid img-proy" />
   </div>
-  
+   -->
 </div>

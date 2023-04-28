@@ -32,7 +32,7 @@ export class ImageService {
     list(imgRef)
       .then(async (response) => {
         for (let i of response.items) {
-          this.url = await getDownloadURL(i);          
+          this.url = await getDownloadURL(i);
         }
       })
       .catch((error) => error);

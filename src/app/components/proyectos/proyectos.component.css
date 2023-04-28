@@ -8,9 +8,8 @@
     background-color: black;
     color: white;
 }
-
-@media (max-width: 750px) {
-    .img-proy{
-        margin-left: 0 ;
-    }
+.crop {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
 }

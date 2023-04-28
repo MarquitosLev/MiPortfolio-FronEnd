@@ -9,6 +9,8 @@ import { EditeducComponent } from './components/educacion/editeduc.component';
 import { NewhardysoftComponent } from './components/hardysoft/newhardysoft.component';
 import { EdithardysoftComponent } from './components/hardysoft/edithardysoft.component';
 import { EditAcercadeComponent } from './components/acerca-de/edit-acercade.component';
+import { NewProyectoComponent } from './components/proyectos/new-proyecto.component';
+import { EditProyectoComponent } from './components/proyectos/edit-proyecto.component';
 
 const routes: Routes = [
   // Paths para login y pantalla principal
@@ -20,7 +22,9 @@ const routes: Routes = [
   {path: 'editedu/:id', component: EditeducComponent},
   {path: 'newhys', component: NewhardysoftComponent},
   {path: 'edithys/:id', component: EdithardysoftComponent},
-  {path: 'editaboutme/:id', component: EditAcercadeComponent}
+  {path: 'editaboutme/:id', component: EditAcercadeComponent},
+  {path: 'newproyecto', component: NewProyectoComponent},
+  {path: 'editproyecto/:id', component: EditProyectoComponent}
 ];
 
 @NgModule({
