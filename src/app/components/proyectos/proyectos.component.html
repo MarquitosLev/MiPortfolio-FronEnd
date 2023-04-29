@@ -18,23 +18,23 @@
         <tr *ngFor="let Proyecto of proyecto">
           <!-- NOMBRE -->
           <td>
-            <h2 class="text-light p-2 col-md-4">{{ Proyecto.nombre }}</h2>
+            <h2 class="text-light p-2 pt-5 col-md-4 ">{{ Proyecto.nombre }}</h2>
           </td>
 
           <!-- DESCRIPCION -->
-          <td class="text-light p-2 pt-3 col-md-6">
+          <td class="text-light p-2 pt-4 col-md-5">
             {{ Proyecto.descripcion }}
           </td>
-
-          <!-- SOLUCIONAR IMAGEN -->
           <!-- IMAGEN-->
-          <td class="p-2 col-md-2">
+          <td class="p-2 col-md-3">
             <img src="{{ Proyecto.imagen }}" id="foto_perfil" class="crop" />
           </td>
 
           <!-- url -->
-          <td class="text-light p-2 align-self-center col-md-1">
-            <a href="{{ Proyecto.url }}" target="_blank">Link</a>
+          <td class="text-light p-5 col-md-1">
+            <a href="{{ Proyecto.url }}" target="_blank"
+              ><i class="bi bi-box-arrow-up-right"></i
+            ></a>
           </td>
 
           <!-- Boton para editar Proyecto -->
@@ -57,19 +57,4 @@
       </tbody>
     </table>
   </div>
-
-  <!-- <div class="col-lg-6">
-    <h2>{{proyecto.nombre}}</h2>
-    <p>
-      {{proyecto.descripcion}}
-    </p>
-
-    <a href="{{proyecto.url}}" target="_blank"
-      ></a>
-  </div>
-  <div class="col-lg-2"></div>
-  <div class="col-lg-4">
-    <img src="{{proyecto.img}}" class="img-fluid img-proy" />
-  </div>
-   -->
 </div>

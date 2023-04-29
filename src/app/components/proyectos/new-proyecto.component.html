@@ -20,12 +20,13 @@
 
           <!-- Descripcion -->
           <div class="p-2 pt-0 form-group">
-            <label for="descripcion" class="fs-3">Descripcion</label>
+            <label for="descripcion" class="fs-3">Descripción (250 caracteres)</label>
             <input
               type="text"
               class="form-control"
               id="descripcion"
               name="descripcion"
+              maxlength="250"
               [(ngModel)]="descripcion"
               required
             />
@@ -40,13 +41,15 @@
               id="imagen"
               name="imagen"
               [(ngModel)]="imagen"
+              (change)="catchFile($event)"
+              accept=".jpg , .png , .jpeg"
             />
           </div>
 
           <div class="p-2 pt-0 form-group">
             <label for="url" class="fs-3">Link</label>
             <input
-              type="url"
+              type="text"
               class="form-control"
               id="url"
               name="url"

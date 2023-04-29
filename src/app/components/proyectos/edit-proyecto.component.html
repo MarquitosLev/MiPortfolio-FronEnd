@@ -39,13 +39,15 @@
               id="img"
               name="img"
               [(ngModel)]="proy.imagen"
+              (change)="catchFile($event)"
+              accept=".jpg , .png , .jpeg"
             />
           </div>
 
           <div class="p-2 pt-0 form-group">
             <label for="url" class="fs-3">URL</label>
             <input
-              type="url"
+              type="text"
               class="form-control"
               id="url"
               name="url"

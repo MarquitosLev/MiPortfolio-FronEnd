@@ -34,6 +34,7 @@ export class EditProyectoComponent {
 
   onUpdate() {
     const id = this.activatedRouter.snapshot.params['id'];
+    this.proy.imagen = this.imagS.catchImagen('proyecto_' + this.proy.nombre)
     this.proyectoS.update(id, this.proy).subscribe(
       (data) => {
         this.router.navigate(['']);
@@ -43,5 +44,10 @@ export class EditProyectoComponent {
         this.router.navigate(['']);
       }
     );
+  }
+
+  catchFile(event: any) {
+    const nombre = 'proyecto_' + this.proy.nombre;
+    this.imagS.catchFile(event, nombre);
   }
 }

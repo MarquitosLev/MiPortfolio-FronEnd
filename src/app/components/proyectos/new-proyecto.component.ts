@@ -16,9 +16,10 @@ export class NewProyectoComponent {
   url: string;
 
   constructor(
-    public imagS: ImageService,
     private proyectoS: ProyectoService,
-    private router: Router
+    private router: Router,
+    private imageService: ImageService,
+    private activatedRouter: ActivatedRoute
   ) {}
 
   ngOnInit(): void {}
@@ -27,7 +28,7 @@ export class NewProyectoComponent {
     const proyecto = new Proyecto(
       this.nombre,
       this.descripcion,
-      this.imagen,
+      this.imageService.catchImagen('proyecto_' + this.nombre),
       this.url
     );
     this.proyectoS.save(proyecto).subscribe(
@@ -40,5 +41,10 @@ export class NewProyectoComponent {
         this.router.navigate(['']);
       }
     );
+  }
+
+  catchFile(event: any) {
+    const nombre = 'proyecto_' + this.nombre;
+    this.imageService.catchFile(event, nombre);
   }
 }
