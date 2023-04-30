@@ -1,4 +1,4 @@
-<div class="p-5 row" *ngIf="proyecto.length > 0 || isLogged">
+<div class="p-5 pb-2 row">
   <h1 class="p-2 text-center"><strong>Proyectos</strong></h1>
   <div class="text-center p-2">
     <button
@@ -11,34 +11,35 @@
     </button>
   </div>
 
-  <div class="p-2 col-lg-12 col-sm-12">
-    <table class="table">
+  <div class="p-2 col-lg-12 col-sm-12 table-responsive">
+    <table class="table table-borderless">
       <tbody>
         <!-- Recorrido de todas las educaciones existentes -->
         <tr *ngFor="let Proyecto of proyecto">
+          <!-- IMAGEN-->
+          <td class="p-2 col-md-1">
+            <img src="{{ Proyecto.imagen }}" id="foto_perfil" class="crop" />
+          </td>
+
           <!-- NOMBRE -->
-          <td>
-            <h2 class="text-light p-2 pt-5 col-md-4 ">{{ Proyecto.nombre }}</h2>
+          <td class="p-2 pt-5 col-md-1">
+            <h2 class="text-light">{{ Proyecto.nombre }}</h2>
           </td>
 
           <!-- DESCRIPCION -->
-          <td class="text-light p-2 pt-4 col-md-5">
+          <td class="text-light p-2 pt-4 col-md-7 text-center">
             {{ Proyecto.descripcion }}
-          </td>
-          <!-- IMAGEN-->
-          <td class="p-2 col-md-3">
-            <img src="{{ Proyecto.imagen }}" id="foto_perfil" class="crop" />
           </td>
 
           <!-- url -->
           <td class="text-light p-5 col-md-1">
-            <a href="{{ Proyecto.url }}" target="_blank"
-              ><i class="bi bi-box-arrow-up-right"></i
+            <a href="{{ Proyecto.url }}" target="_blank" class="link-primary"
+              ><i class="bi bi-box-arrow-up-right" style="font-size: 20px"></i
             ></a>
           </td>
 
           <!-- Boton para editar Proyecto -->
-          <td *ngIf="isLogged" class="text-center pt-4">
+          <td *ngIf="isLogged" class="text-center pt-5">
             <button
               class="btn btn-light"
               routerLink="/editproyecto/{{ Proyecto.id }}"
@@ -48,7 +49,7 @@
           </td>
 
           <!-- Delete -->
-          <td *ngIf="isLogged" class="text-center pt-4">
+          <td *ngIf="isLogged" class="text-center pt-5">
             <button class="btn btn-danger" (click)="delete(Proyecto.id)">
               <i class="bi bi-trash-fill p-3"></i>
             </button>

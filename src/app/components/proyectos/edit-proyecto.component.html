@@ -31,7 +31,7 @@
             />
           </div>
 
-          <div class="p-2 pt-0 form-group">
+          <div class="p-2 pt-0 form-group" *ngIf="proy.nombre.length > 0">
             <label for="img" class="fs-3">Imagen</label>
             <input
               type="file"
@@ -44,7 +44,7 @@
             />
           </div>
 
-          <div class="p-2 pt-0 form-group">
+          <div class="p-2 pt-0 form-group" *ngIf="proy.nombre.length > 0">
             <label for="url" class="fs-3">URL</label>
             <input
               type="text"

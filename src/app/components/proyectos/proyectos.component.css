@@ -9,7 +9,10 @@
     color: white;
 }
 .crop {
-    width: 250px;
+    width: 150px;
     height: 150px;
     object-fit: cover;
+}
+h1{
+    font-family: 'Chakra Petch', sans-serif;
 }

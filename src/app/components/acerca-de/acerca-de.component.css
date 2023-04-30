@@ -11,6 +11,10 @@ div{
     padding: 25px;
 }
 
+h1{
+    font-family: 'Chakra Petch', sans-serif;
+}
+
 @media (min-width: 576px) {
     #foto_perfil{  
         position: absolute;      

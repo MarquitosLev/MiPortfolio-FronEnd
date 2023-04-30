@@ -1,5 +1,5 @@
-<div class="p-5 row">
-  <h1 class=" p-3 text-center" *ngIf="educ.length > 0 || isLogged">Educación</h1>
+<div class="p-5 pt-0 row">
+  <h1 class="p-3 text-center"><strong>Educación</strong></h1>
 
   <div class="text-center p-2">
     <button
@@ -12,24 +12,26 @@
     </button>
   </div>
 
-  <div class="p-2 col-lg-12 col-sm-12">
-    <table class="table">
+  <div class="p-2 col-lg-12 col-sm-12 table-responsive">
+    <table class="table table-borderless">
       <tbody>
         <!-- Recorrido de todas las educaciones existentes -->
         <tr *ngFor="let Educacion of educ">
           <td>
-            <h2 class="text-light p-2 ">{{Educacion.nombreE}}</h2>
+            <h2 class="text-light p-2">{{ Educacion.nombreE }}</h2>
           </td>
 
-          <td class="text-light p-2 pt-3 col-lg-6 ">{{ Educacion.descripcionE }}</td>
+          <td class="text-light p-2 pt-3 col-lg-6">
+            {{ Educacion.descripcionE }}
+          </td>
 
           <td *ngIf="isLogged" class="text-center pt-4 col-lg-1">
             <!-- Boton para editar Educacion -->
             <button
               class="btn btn-light"
-              routerLink="/editedu/{{Educacion.id}}"
+              routerLink="/editedu/{{ Educacion.id }}"
             >
-              <i class="p-3 bi bi-pencil-fill "></i>
+              <i class="p-3 bi bi-pencil-fill"></i>
             </button>
           </td>
 
@@ -38,7 +40,6 @@
               <i class="bi bi-trash-fill p-3"></i>
             </button>
           </td>
-
         </tr>
       </tbody>
     </table>

@@ -4,8 +4,7 @@
       <div>
         <h1 class="text-center">Nuevo Proyecto</h1>
         <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
-
-            <!-- Nombre -->
+          <!-- Nombre -->
           <div class="p-2 form-group">
             <label for="nombre" class="fs-3">Nombre de Proyecto</label>
             <input
@@ -20,7 +19,9 @@
 
           <!-- Descripcion -->
           <div class="p-2 pt-0 form-group">
-            <label for="descripcion" class="fs-3">Descripción (250 caracteres)</label>
+            <label for="descripcion" class="fs-3"
+              >Descripción (250 caracteres)</label
+            >
             <input
               type="text"
               class="form-control"
@@ -33,8 +34,8 @@
           </div>
 
           <!-- Imagen -->
-          <div class="p-2 pt-0 form-group">
-            <label for="imagen" class="fs-3">Imagen</label>
+          <div class="p-2 pt-0 form-group" *ngIf="nombre.length > 0">
+            <label for="imagen" class="fs-3">Imagen (150x150)</label>
             <input
               type="file"
               class="form-control"
@@ -46,7 +47,7 @@
             />
           </div>
 
-          <div class="p-2 pt-0 form-group">
+          <div class="p-2 pt-0 form-group" *ngIf="nombre.length > 0">
             <label for="url" class="fs-3">Link</label>
             <input
               type="text"
@@ -61,7 +62,6 @@
           <div class="text-center">
             <button class="btn btn-primary">Agregar</button>
           </div>
-
         </form>
       </div>
     </div>

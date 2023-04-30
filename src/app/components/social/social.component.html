@@ -1,13 +1,19 @@
 <div>
-  <a href="https://www.instagram.com/__leivam/" target="_blank" class="me-4 link-light"
+  <a
+    href="https://www.instagram.com/__leivam/"
+    target="_blank"
+    class="me-4 link-light"
     ><i class="bi bi-instagram" style="font-size: 24px"></i
   ></a>
-  <a href="https://github.com/MarquitosLev" target="_blank" class="me-4 link-light"
+  <a
+    href="https://github.com/MarquitosLev"
+    target="_blank"
+    class="me-4 link-light"
     ><i class="bi bi-github" style="font-size: 24px"></i
   ></a>
   <button
     type="button"
-    class="btn btn-success"
+    class="btn btn-success me-3"
     (click)="login()"
     *ngIf="!isLogged"
   >
@@ -15,7 +21,7 @@
   </button>
   <button
     type="button"
-    class="btn btn-danger boton me-3"
+    class="btn btn-danger me-3"
     (click)="onLogOut()"
     *ngIf="isLogged"
   >
