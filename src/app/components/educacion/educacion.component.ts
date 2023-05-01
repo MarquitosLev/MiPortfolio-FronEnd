@@ -8,7 +8,7 @@ import { TokenService } from 'src/app/service/token.service';
   templateUrl: './educacion.component.html',
   styleUrls: ['./educacion.component.css'],
 })
-export class EducacionComponent implements OnInit{
+export class EducacionComponent implements OnInit {
   educ: Educacion[] = [];
   isLogged = false;
 
@@ -40,5 +40,27 @@ export class EducacionComponent implements OnInit{
         }
       );
     }
+  }
+
+  // METODOS PARA EL DRAG AND DROP
+
+  onDragStart(event: DragEvent, index: number) {
+    if (!this.isLogged) return;
+    event.dataTransfer.setData('index', index.toString());
+  }
+
+  onDrop(event: DragEvent, index: number) {
+    if (!this.isLogged) return;
+    const previousIndex = parseInt(event.dataTransfer.getData('index'));
+    const educacion = [...this.educ];
+    const [movedItem] = educacion.splice(previousIndex, 1);
+    educacion.splice(index, 0, movedItem);
+    this.educ = educacion;
+  }
+
+  onDragOver(event: DragEvent) {
+    if (!this.isLogged) return;
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'move';
   }
 }

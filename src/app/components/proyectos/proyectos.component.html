@@ -15,7 +15,22 @@
     <table class="table table-borderless">
       <tbody>
         <!-- Recorrido de todas las educaciones existentes -->
-        <tr *ngFor="let Proyecto of proyecto">
+        <!-- Tambien estan los métodos para el drag and drop -->
+        <tr
+          *ngFor="let Proyecto of proyecto; let i = index"
+          draggable="true"
+          (dragstart)="onDragStart($event, i)"
+          (drop)="onDrop($event, i)"
+          (dragover)="onDragOver($event)"
+        >
+          <!-- Icono para el drag and drop -->
+          <td class="p-5 col-md-1" *ngIf="isLogged">
+            <i
+              class="bi bi-grip-vertical"
+              style="font-size: 25px; color: antiquewhite"
+            ></i>
+          </td>
+
           <!-- IMAGEN-->
           <td class="p-2 col-md-1">
             <img src="{{ Proyecto.imagen }}" id="foto_perfil" class="crop" />
@@ -31,7 +46,7 @@
             {{ Proyecto.descripcion }}
           </td>
 
-          <!-- url -->
+          <!-- URL -->
           <td class="text-light p-5 col-md-1">
             <a href="{{ Proyecto.url }}" target="_blank" class="link-primary"
               ><i class="bi bi-box-arrow-up-right" style="font-size: 20px"></i
@@ -48,7 +63,7 @@
             </button>
           </td>
 
-          <!-- Delete -->
+          <!-- Delete Proyecto -->
           <td *ngIf="isLogged" class="text-center pt-5">
             <button class="btn btn-danger" (click)="delete(Proyecto.id)">
               <i class="bi bi-trash-fill p-3"></i>

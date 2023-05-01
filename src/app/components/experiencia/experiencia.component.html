@@ -16,7 +16,30 @@
   <div class="p-2 col-lg-12 col-sm-12 table-responsive">
     <table class="table table-borderless">
       <tbody>
-        <tr *ngFor="let Experiencia of expe">
+        <tr
+          *ngFor="let Experiencia of expe; let i = index"
+          draggable="true"
+          (dragstart)="onDragStart($event, i)"
+          (drop)="onDrop($event, i)"
+          (dragover)="onDragOver($event)"
+        >
+          <!-- Icono para el drag and drop -->
+          <td
+            class="pt-3 pe-0"
+            *ngIf="isLogged"
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              vertical-align: middle;
+            "
+          >
+            <i
+              class="bi bi-grip-vertical"
+              style="font-size: 25px; color: antiquewhite"
+            ></i>
+          </td>
+
           <td>
             <h2 class="text-light p-2">{{ Experiencia.nombreE }}</h2>
           </td>

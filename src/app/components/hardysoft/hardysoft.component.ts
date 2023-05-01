@@ -12,10 +12,7 @@ export class HardysoftComponent {
   hys: Hardysoft[] = [];
   isLogged = false;
 
-  constructor(
-    private sHys: ShardysoftService,
-    private tokenS: TokenService
-  ) {}
+  constructor(private sHys: ShardysoftService, private tokenS: TokenService) {}
 
   ngOnInit(): void {
     this.cargarHys();
@@ -43,5 +40,27 @@ export class HardysoftComponent {
         }
       );
     }
+  }
+
+  // METODOS PARA EL DRAG AND DROP
+
+  onDragStart(event: DragEvent, index: number) {
+    if (!this.isLogged) return;
+    event.dataTransfer.setData('index', index.toString());
+  }
+
+  onDrop(event: DragEvent, index: number) {
+    if (!this.isLogged) return;
+    const previousIndex = parseInt(event.dataTransfer.getData('index'));
+    const hys = [...this.hys];
+    const [movedItem] = hys.splice(previousIndex, 1);
+    hys.splice(index, 0, movedItem);
+    this.hys = hys;
+  }
+
+  onDragOver(event: DragEvent) {
+    if (!this.isLogged) return;
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'move';
   }
 }

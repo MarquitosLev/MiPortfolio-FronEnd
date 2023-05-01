@@ -14,8 +14,29 @@
 
   <div
     class="text-center col-sm-12 col-md-4 col-lg-4 carta"
-    *ngFor="let skills of hys"
+    *ngFor="let skills of hys; let i = index"
+    draggable="true"
+    (dragstart)="onDragStart($event, i)"
+    (drop)="onDrop($event, i)"
+    (dragover)="onDragOver($event)"
   >
+    <!-- Icono para el drag and drop -->
+    <td
+      class="pt-5 pe-0"
+      *ngIf="isLogged"
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+      "
+    >
+      <i
+        class="bi bi-grip-horizontal"
+        style="font-size: 25px; color: antiquewhite"
+      ></i>
+    </td>
+
     <circle-progress
       [showUnits]="false"
       [showSubtitle]="false"

@@ -16,7 +16,30 @@
     <table class="table table-borderless">
       <tbody>
         <!-- Recorrido de todas las educaciones existentes -->
-        <tr *ngFor="let Educacion of educ">
+        <tr
+          *ngFor="let Educacion of educ; let i = index"
+          draggable="true"
+          (dragstart)="onDragStart($event, i)"
+          (drop)="onDrop($event, i)"
+          (dragover)="onDragOver($event)"
+        >
+          <!-- Icono para el drag and drop -->
+          <td
+            class="pt-5 pe-0"
+            *ngIf="isLogged"
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              vertical-align: middle;
+            "
+          >
+            <i
+              class="bi bi-grip-vertical"
+              style="font-size: 25px; color: antiquewhite"
+            ></i>
+          </td>
+
           <td>
             <h2 class="text-light p-2">{{ Educacion.nombreE }}</h2>
           </td>

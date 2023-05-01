@@ -44,4 +44,29 @@ export class ExperienciaComponent implements OnInit {
       );
     }
   }
+
+  // METODOS PARA EL DRAG AND DROP
+
+  onDragStart(event: DragEvent, index: number) {
+    if(!this.isLogged)
+      return;
+    event.dataTransfer.setData('index', index.toString());
+  }
+
+  onDrop(event: DragEvent, index: number) {
+    if(!this.isLogged)
+      return;
+    const previousIndex = parseInt(event.dataTransfer.getData('index'));
+    const experiencia = [...this.expe];
+    const [movedItem] = experiencia.splice(previousIndex, 1);
+    experiencia.splice(index, 0, movedItem);
+    this.expe = experiencia;
+  }
+
+  onDragOver(event: DragEvent) {
+    if(!this.isLogged)
+      return;
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'move';
+  }
 }
