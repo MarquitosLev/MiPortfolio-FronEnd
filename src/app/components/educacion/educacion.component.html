@@ -12,7 +12,7 @@
     </button>
   </div>
 
-  <div class="p-2 col-lg-12 col-sm-12 table-responsive">
+  <div class="p-2 table-responsive">
     <table class="table table-borderless">
       <tbody>
         <!-- Recorrido de todas las educaciones existentes -->
@@ -22,18 +22,10 @@
           (dragstart)="onDragStart($event, i)"
           (drop)="onDrop($event, i)"
           (dragover)="onDragOver($event)"
+          class="col-sm-12 col-md-12 col-lg-12"
         >
           <!-- Icono para el drag and drop -->
-          <td
-            class="pt-5 pe-0"
-            *ngIf="isLogged"
-            style="
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              vertical-align: middle;
-            "
-          >
+          <td class="align-middle pe-0" *ngIf="isLogged">
             <i
               class="bi bi-grip-vertical"
               style="font-size: 25px; color: antiquewhite"
@@ -41,14 +33,22 @@
           </td>
 
           <td>
-            <h2 class="text-light p-2">{{ Educacion.nombreE }}</h2>
+            <h2
+              class="text-light p-2 text-start"
+              style="font-family: 'Sofia Sans', sans-serif"
+            >
+              {{ Educacion.nombreE }}
+            </h2>
           </td>
 
-          <td class="text-light p-2 pt-3 col-lg-6">
+          <td
+            class="text-light p-2 text-start align-middle"
+            style="font-family: sans-serif"
+          >
             {{ Educacion.descripcionE }}
           </td>
 
-          <td *ngIf="isLogged" class="text-center pt-4 col-lg-1">
+          <td *ngIf="isLogged" class="text-center align-middle">
             <!-- Boton para editar Educacion -->
             <button
               class="btn btn-light"
@@ -58,7 +58,7 @@
             </button>
           </td>
 
-          <td *ngIf="isLogged" class="text-center pt-4 col-lg-1">
+          <td *ngIf="isLogged" class="text-center align-middle">
             <button class="btn btn-danger" (click)="delete(Educacion.id)">
               <i class="bi bi-trash-fill p-3"></i>
             </button>

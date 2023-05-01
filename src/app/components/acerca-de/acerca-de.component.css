@@ -12,7 +12,7 @@ div{
 }
 
 h1{
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Sofia Sans', sans-serif;
 }
 
 @media (min-width: 576px) {
@@ -21,7 +21,7 @@ h1{
         width: 170px;
         left: 15%;
         border-radius: 100%;
-        box-shadow: 3px 3px 3px rgb(63, 63, 63);       
+        box-shadow: 3px 3px 3px rgb(104, 104, 104);       
     }
     #acerca{
         padding-bottom: 35px;

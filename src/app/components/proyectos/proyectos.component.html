@@ -11,7 +11,7 @@
     </button>
   </div>
 
-  <div class="p-2 col-lg-12 col-sm-12 table-responsive">
+  <div class="p-2 table-responsive">
     <table class="table table-borderless">
       <tbody>
         <!-- Recorrido de todas las educaciones existentes -->
@@ -22,9 +22,10 @@
           (dragstart)="onDragStart($event, i)"
           (drop)="onDrop($event, i)"
           (dragover)="onDragOver($event)"
+          class="col-sm-12 col-md-12 col-lg-12"
         >
           <!-- Icono para el drag and drop -->
-          <td class="p-5 col-md-1" *ngIf="isLogged">
+          <td class="p-5" *ngIf="isLogged">
             <i
               class="bi bi-grip-vertical"
               style="font-size: 25px; color: antiquewhite"
@@ -32,29 +33,37 @@
           </td>
 
           <!-- IMAGEN-->
-          <td class="p-2 col-md-1">
+          <td class="p-2 align-middle">
             <img src="{{ Proyecto.imagen }}" id="foto_perfil" class="crop" />
           </td>
 
           <!-- NOMBRE -->
-          <td class="p-2 pt-5 col-md-1">
-            <h2 class="text-light">{{ Proyecto.nombre }}</h2>
+          <td class="p-2 align-middle">
+            <h2
+              class="text-light"
+              style="font-family: 'Sofia Sans', sans-serif"
+            >
+              {{ Proyecto.nombre }}
+            </h2>
           </td>
 
           <!-- DESCRIPCION -->
-          <td class="text-light p-2 pt-4 col-md-7 text-center">
+          <td
+            class="text-light p-2 pt-4 text-center align-middle"
+            style="font-family: sans-serif"
+          >
             {{ Proyecto.descripcion }}
           </td>
 
           <!-- URL -->
-          <td class="text-light p-5 col-md-1">
+          <td class="text-light p-5 align-middle">
             <a href="{{ Proyecto.url }}" target="_blank" class="link-primary"
               ><i class="bi bi-box-arrow-up-right" style="font-size: 20px"></i
             ></a>
           </td>
 
           <!-- Boton para editar Proyecto -->
-          <td *ngIf="isLogged" class="text-center pt-5">
+          <td *ngIf="isLogged" class="text-center align-middle">
             <button
               class="btn btn-light"
               routerLink="/editproyecto/{{ Proyecto.id }}"
@@ -64,7 +73,7 @@
           </td>
 
           <!-- Delete Proyecto -->
-          <td *ngIf="isLogged" class="text-center pt-5">
+          <td *ngIf="isLogged" class="text-center align-middle">
             <button class="btn btn-danger" (click)="delete(Proyecto.id)">
               <i class="bi bi-trash-fill p-3"></i>
             </button>
